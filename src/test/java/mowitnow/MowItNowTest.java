@@ -33,34 +33,34 @@ public class MowItNowTest {
 
 	@Test
 	public void orientationIsInvalid() {
-		MowItNow mowItNow = new MowItNow("test/mowitnow/mowItNowIncoherent.txt");
+		MowItNow mowItNow = new MowItNow("src/test/resources/mowItNowIncoherent.txt");
 		Assert.assertEquals("1 2 N\n", mowItNow.run());
 	}
 
 	@Test
 	public void mowItNow() {
-		MowItNow mowItNow = new MowItNow("test/mowitnow/mowItNow.txt");
+		MowItNow mowItNow = new MowItNow("src/test/resources/mowItNow.txt");
 		Assert.assertEquals("1 3 N\n5 1 E\n", mowItNow.run());
 	}
 
 	@Test
 	public void mowItNowOutside() {
-		MowItNow mowItNow = new MowItNow("test/mowitnow/mowItNowOutside.txt");
+		MowItNow mowItNow = new MowItNow("src/test/resources/mowItNowOutside.txt");
 		Assert.assertEquals("", mowItNow.run());
 	}
 
 	@Test
 	public void mowItNowWithCollision() {
 		MowItNow mowItNow = new MowItNow(
-				"test/mowitnow/mowItNowWithCollision.txt");
-		Assert.assertEquals("1 3 N\n1 2 N\n", mowItNow.run());
+				"src/test/resources/mowItNowWithCollision.txt");
+		Assert.assertEquals("1 3 N\n", mowItNow.run());
 	}
 
 	@Test
 	public void mowItNowWithRejection() {
 		MowItNow mowItNow = new MowItNow(
-				"test/mowitnow/mowItNowWithRejection.txt");
-		Assert.assertEquals("1 3 N\n1 2 N\n1 2 N\n", mowItNow.run());
+				"src/test/resources/mowItNowWithRejection.txt");
+		Assert.assertEquals("1 3 N\n", mowItNow.run());
 	}
 
 }

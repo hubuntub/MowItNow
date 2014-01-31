@@ -27,40 +27,40 @@ public class MowerParserTest {
 	
 	@Test
 	public void testMowerParserShouldWorkIfFileExists() {
-		MowerParser mowerParser = new MowerParser("test/mowitnow/mowItNowIncoherent.txt");
+		MowerParser mowerParser = new MowerParser("src/test/resources/mowItNowIncoherent.txt");
 		assertNotNull(mowerParser);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void getIntegerByIndexWithEmptyString() {
-		MowerParser mowerParser = new MowerParser("test/mowitnow/mowItNowIncoherent.txt");
+		MowerParser mowerParser = new MowerParser("src/test/resources/mowItNowIncoherent.txt");
 		mowerParser.getIntegerByIndex("", 1);
 	}
 	@Test(expected = IllegalArgumentException.class)
 	public void getIntegerByIndexWithInvalidIndex() {
-		MowerParser mowerParser = new MowerParser("test/mowitnow/mowItNowIncoherent.txt");
+		MowerParser mowerParser = new MowerParser("src/test/resources/mowItNowIncoherent.txt");
 		mowerParser.getIntegerByIndex("A", 1);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void getIntegerByIndexWithNonIntegerValues() {
-		MowerParser mowerParser = new MowerParser("test/mowitnow/mowItNowIncoherent.txt");
+		MowerParser mowerParser = new MowerParser("src/test/resources/mowItNowIncoherent.txt");
 		mowerParser.getIntegerByIndex("A B 2", 1);
 	}
 	@Test(expected = IllegalArgumentException.class)
 	public void getIntegerByIndexWith() {
-		MowerParser mowerParser = new MowerParser("test/mowitnow/mowItNowIncoherent.txt");
+		MowerParser mowerParser = new MowerParser("src/test/resources/mowItNowIncoherent.txt");
 		mowerParser.getIntegerByIndex("1  2", 1);
 	}
 	@Test(expected = IllegalArgumentException.class)
 	public void getIntegerByIndexWithNegativeValues() {
-		MowerParser mowerParser = new MowerParser("test/mowitnow/mowItNowIncoherent.txt");
+		MowerParser mowerParser = new MowerParser("src/test/resources/mowItNowIncoherent.txt");
 		mowerParser.getIntegerByIndex("1 -2", 1);
 	}
 	
 	@Test
 	public void getIntegerByIndexWithValidInteger() {
-		MowerParser mowerParser = new MowerParser("test/mowitnow/mowItNowIncoherent.txt");
+		MowerParser mowerParser = new MowerParser("src/test/resources/mowItNowIncoherent.txt");
 		int actual1 = mowerParser.getIntegerByIndex("1 2", 0);
 		int actual2 = mowerParser.getIntegerByIndex("1 2", 1);
 		assertEquals(1, actual1);
@@ -70,12 +70,12 @@ public class MowerParserTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void getOrientationByIndexWithNotAllowedCharacter() {
-		MowerParser mowerParser = new MowerParser("test/mowitnow/mowItNowIncoherent.txt");
+		MowerParser mowerParser = new MowerParser("src/test/resources/mowItNowIncoherent.txt");
 		mowerParser.getOrientationByIndex("1 2 A", 2);
 	}
 	@Test
 	public void getOrientationByIndexWithValidCharacter() {
-		MowerParser mowerParser = new MowerParser("test/mowitnow/mowItNowIncoherent.txt");
+		MowerParser mowerParser = new MowerParser("src/test/resources/mowItNowIncoherent.txt");
 		Orientation actual = mowerParser.getOrientationByIndex("1 2 N", 2);
 		assertEquals(Orientation.N, actual);
 	}
@@ -83,13 +83,13 @@ public class MowerParserTest {
 
 	@Test
 	public void getCoordinatesIsNull() {
-		MowerParser mowerParser = new MowerParser("test/mowitnow/mowItNowIncoherent.txt");
+		MowerParser mowerParser = new MowerParser("src/test/resources/mowItNowIncoherent.txt");
 		Coordinates coordinates = mowerParser.getCoordinates("1252");
 		assertNull(coordinates);
 	}
 	@Test
 	public void getCoordinatesIsNotNull() {
-		MowerParser mowerParser = new MowerParser("test/mowitnow/mowItNowIncoherent.txt");
+		MowerParser mowerParser = new MowerParser("src/test/resources/mowItNowIncoherent.txt");
 		Coordinates coordinates = mowerParser.getCoordinates("1 2");
 		assertNotNull(coordinates);
 		assertEquals(1, coordinates.getX());
@@ -97,13 +97,13 @@ public class MowerParserTest {
 	}
 	@Test
 	public void getOrientedCoordinatesIsNull() {
-		MowerParser mowerParser = new MowerParser("test/mowitnow/mowItNowIncoherent.txt");
+		MowerParser mowerParser = new MowerParser("src/test/resources/mowItNowIncoherent.txt");
 		OrientedCoordinates coordinates = mowerParser.getOrientedCoordinates("1 2");
 		assertNull(coordinates);
 	}
 	@Test
 	public void getOrientedCoordinatesIsNotNull() {
-		MowerParser mowerParser = new MowerParser("test/mowitnow/mowItNowIncoherent.txt");
+		MowerParser mowerParser = new MowerParser("src/test/resources/mowItNowIncoherent.txt");
 		OrientedCoordinates coordinates = mowerParser.getOrientedCoordinates("1 2 N");
 		assertNotNull(coordinates);
 		assertEquals(1, coordinates.getX());
@@ -112,14 +112,14 @@ public class MowerParserTest {
 	}
 	@Test
 	public void getMowersIsEmpty() {
-		MowerParser mowerParser = new MowerParser("test/mowitnow/mowItNowEmpty.txt");
+		MowerParser mowerParser = new MowerParser("src/test/resources/mowItNowEmpty.txt");
 		Map<LawnMower, String> mowers = mowerParser.getMowers();
 		assertNotNull(mowers);
 		assertTrue(mowers.keySet().isEmpty());
 	}
 	@Test
 	public void getMowersIsNotEmpty() {
-		MowerParser mowerParser = new MowerParser("test/mowitnow/mowItNow.txt");
+		MowerParser mowerParser = new MowerParser("src/test/resources/mowItNow.txt");
 		
 		Coordinates coordinatesGrid = new Coordinates(5, 5);
 		OrientedCoordinates coordinates1 = new OrientedCoordinates(new Coordinates(1, 2), Orientation.N);
