@@ -1,1 +1,1 @@
-[![Build Status](https://travis-ci.org/xgbi/assertj-vaadin.png?branch=develop)](https://travis-ci.org/xgbi/assertj-vaadin)
+[![Build Status](https://travis-ci.org/hubuntub/MowItNow.png?branch=master)](https://travis-ci.org/hubuntub/MowItNow)
